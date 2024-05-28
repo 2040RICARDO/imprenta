@@ -52,7 +52,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://localhost'),
+    //'url' => env('APP_URL', 'https://localhost'),
+    'url' => env('APP_URL', 'https://imprentaunsxx-16c672aa5d08.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
