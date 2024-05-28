@@ -41,8 +41,8 @@ export default function Login({status, canResetPassword}) {
                 <div className="surface-card p-6 sm:p-4 shadow-2 border-round w-full lg:w-4">
                     <div className="text-center mb-5">
                         <div className="text-900 text-3xl font-medium mb-3">Bienvenido</div>
-                        <span className="text-600 font-medium line-height-3">No tienes una cuenta?</span>
-                        <Link  href={route('register')} className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Registrar!</Link>
+                        <span className="text-600 font-medium line-height-3">Ingrese su usuario y contraseña</span>
+                        {/* <Link  href={route('register')} className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Registrar!</Link> */}
                     </div>
                     <form onSubmit={submit}>
                         <div>
@@ -80,12 +80,12 @@ export default function Login({status, canResetPassword}) {
                                 </div>
 
                                 {canResetPassword && (
-                                    <Link
-                                        href={route('password.request')}
+                                    <a
+                                        href={route('welcome')}
                                         className="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
                                     >
-                                        Olvidaste tu contraseña?
-                                    </Link>
+                                       Regresar
+                                    </a>
                                 )}
                             </div>
 

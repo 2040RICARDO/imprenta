@@ -3,7 +3,7 @@
 import { classNames } from 'primereact/utils';
 import React, { forwardRef, useContext, useImperativeHandle, useRef } from 'react';
 import { LayoutContext } from './layoutcontext';
-import {Link} from "@inertiajs/react";
+import {Link, useForm} from "@inertiajs/react";
 
 const AppTopbar = forwardRef((props, ref) => {
     const { layoutConfig, layoutState, onMenuToggle, showProfileSidebar } = useContext(LayoutContext);
@@ -17,6 +17,15 @@ const AppTopbar = forwardRef((props, ref) => {
         topbarmenubutton: topbarmenubuttonRef.current
     }));
 
+
+    const { post } = useForm();
+
+    const handleLogout = (e) => {
+        
+        post(route('logout'));
+       
+        //window.location.href = route('welcome')
+    };
 
     return (
         <div className="layout-topbar">
@@ -34,10 +43,19 @@ const AppTopbar = forwardRef((props, ref) => {
                 <i className="pi pi-user"></i>
                 <span>Perfil</span>
             </Link>
-            <Link href={route('logout')} method="post" as="button" className="p-link layout-topbar-button">
+
+    
+
+            {/* <form onSubmit={handleLogout}>
+                <button type="submit" className="p-link layout-topbar-button">
+                    <i className="pi pi-lock"></i>
+                    <span>Salir</span>
+                </button>
+            </form> */}
+            <a href={route('logout')} className="p-link layout-topbar-button">
                 <i className="pi pi-lock"></i>
                 <span>Salir</span>
-            </Link>
+            </a>
         </div>
     </div>
 
